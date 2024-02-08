@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   namespace :customer do
     get '/order_place', :to => 'checkouts#orderplace'
+    get '/customer/products', to: 'products#search'
     resources :carts ,:products , :orders, :checkouts
   end
   # get 'categories/index'
 
   namespace :seller do
     resources :products
+    delete '/seller/products/:id', to: "products#destroy"
   end
 
   namespace :admin do

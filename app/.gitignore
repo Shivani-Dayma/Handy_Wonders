@@ -1,0 +1,21 @@
+# Ignore development and test database files
+db/development.sqlite3
+db/test.sqlite3
+
+# Ignore log files
+log/*.log
+
+# Ignore storage directories
+storage/60/
+storage/ti/
+storage/v2/
+storage/w9/
+
+# Ignore temporary files and directories
+tmp/cache/
+tmp/development_secret.txt
+tmp/pids/server.pid
+tmp/restart.txt
+
+# Ignore sensitive configuration files
+config/master.key

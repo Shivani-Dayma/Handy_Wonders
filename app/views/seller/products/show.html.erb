@@ -13,8 +13,8 @@
     <li class="list-group-item">Vestibulum at eros</li>
   </ul>
   <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <%@products=current_account.products%>
+    <%= link_to "Back", seller_products_path(@products) ,class:"btn btn-success"%>
   </div>
 </div>
 </div>

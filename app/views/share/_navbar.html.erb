@@ -51,10 +51,10 @@ nav {
           <a class="nav-link disabled">Disabled</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+     <form class="d-flex" role="search" action="<%= customer_customer_products_path %>" method="get">
+     <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+     <button class="btn btn-outline-success" type="submit">Search</button>
+     </form>
       <%if account_signed_in? %>
       <% if current_account.roles.first[:name]== "customer" %>
       <h1>
