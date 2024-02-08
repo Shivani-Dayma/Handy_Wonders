@@ -7,10 +7,14 @@ class Account < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
   
-  
-  has_many :carts
-  has_many :cart_items
-  has_many :products
-  has_many :orders
-       
+  has_many :carts, dependent: :destroy
+  has_many :products, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  after_create :create_cart
+  private
+
+  def create_cart
+  Cart.create(account_id: self.id, order_id: 1)
+  end
+
 end

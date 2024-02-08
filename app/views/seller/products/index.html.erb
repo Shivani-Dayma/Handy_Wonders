@@ -1,8 +1,5 @@
 
-
-
   <style>
-
   body{
     background-color: black;
   }
@@ -11,31 +8,17 @@
   }
   h1{
     display: flex;
-    font-size:120px;
+    font-size:50px;
     color: greenyellow;
-    text-align:center;
-  }
+margin-left: 200px;  }
 .card-img-top{
   width:100%;
   height: 250px;
 }
   </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="container">
 <% if account_signed_in? %>
-<h1>WELLCOME <%= current_account.firstname%> <%= current_account.lastname%></h1>
+<h1>WELLCOME TO SELLER PAGE</h1>
 <% end %>
 <div class="row">
 <% @products.each do |pro| %>
@@ -53,10 +36,7 @@
       <div class="container">
         <%= link_to "Show", seller_product_path(pro) ,class:"btn btn-primary"%>
         <%= link_to "Edit", edit_seller_product_path(pro) ,class:"btn btn-success"%>
-        <%= link_to "Destroy", seller_product_path(pro),class:"btn btn-danger",data: {
-                          turbo_method: :delete,
-                          turbo_confirm: "Are you sure?"
-                        } %>
+        <%= button_to "Destroy", seller_product_path(pro), method: :delete, class: "btn btn-danger", data: { turbo_confirm: "Are you sure?" } %>
       </div>
   </div>
 </div>

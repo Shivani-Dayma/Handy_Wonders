@@ -4,7 +4,7 @@
   }
   h2{
     display: flex;
-    font-size:120px;
+    font-size:100px;
     color: greenyellow;
     text-align:center;
   }
@@ -17,19 +17,16 @@
 
 
 
-<% if account_signed_in? %>
-<h2>WELLCOME TO E-COMMERCE WEBSITE</h2>
-<% end %>
-
+<h2> WELLCOME TO E-COMMERCE WEBSITE</h2>
 <div class="container">
     <div class="row">
+    <% @products=Product.all%>
     <% @products.each do |pro| %>
       <div class="col">
-
         <div class="card" style="width: 18rem;">
-
-          <%= image_tag (url_for(pro.image)) ,class:"card-img-top"%>
-
+           <% if pro.present? && pro.image.attached? %>
+          <%= image_tag(url_for(pro.image), class: "card-img-top") %>
+         <% end%>
           <div class="card-body">
             <h5 class="card-title"></h5>
             <p class="card-text"><%= pro.description %></p>
@@ -50,6 +47,6 @@
 </div>
 
 
- <div class="row">
+ <%# <div class="row">
 <%= will_paginate @products, class: "digg_pagination mt-2 col-4 offset-4" %>
- </div>
+ </div> %>

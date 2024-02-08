@@ -13,7 +13,6 @@ def show
 
   def create
     @product = current_account.products.new(product_params)
-
     if @product.save
       redirect_to [:seller,@product]
     else
@@ -27,11 +26,18 @@ def show
 
   def update
     @product = Product.find(params[:id])
-
     if @product.update(product_params)
       redirect_to [:seller,@product]
     else
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.destroy
+      @products=current_account.products
+      render :index, locals: { my_argument: @products }
     end
   end
 
